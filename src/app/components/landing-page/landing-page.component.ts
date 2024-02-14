@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/models/product.model';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -7,11 +8,15 @@ import { Category } from 'src/app/models/product.model';
   styleUrls: ['./landing-page.component.css'],
 })
 export class LandingPageComponent implements OnInit {
+  constructor(private __productService: ProductsService) {}
   categories: Category[] = [];
 
-  constructor(private __productService: ProductsService) {}
-
   ngOnInit(): void {
-    this.__productService.getCategories();
+    this.__productService.getCategories().subscribe({
+      next: (data: any) => {
+        this.categories = data;
+      },
+    });
+    // console.log(this.categories);
   }
 }
