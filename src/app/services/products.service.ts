@@ -14,12 +14,16 @@ export class ProductsService {
     return this._httpClient.get<IProduct>(this.baseURL);
   }
 
+  public getProductsById(id: string): Observable<IProduct> {
+    return this._httpClient.get<IProduct>(`${this.baseURL}/${id}`);
+  }
+
   public getCategories(): Observable<Category> {
     return this._httpClient.get<Category>(`${this.baseURL}/categories`);
   }
 
-  public getProductsForCategory(category: Category): Observable<IProduct> {
-    return this._httpClient.get<IProduct>(
+  public getProductsForCategory(category: Category): Observable<IProduct[]> {
+    return this._httpClient.get<IProduct[]>(
       `${this.baseURL}/category/${category}`
     );
   }

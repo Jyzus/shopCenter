@@ -1,23 +1,12 @@
 <nav class="w-full">
   <div class="container mx-auto p-4 flex justify-between items-center gap-12">
     <div class="flex items-center gap-4 grow">
-      <div class="flex items-center gap-2 shrink-0">
+      <div
+        class="flex items-center gap-2 shrink-0 cursor-pointer"
+        [routerLink]="['/']"
+      >
         <img src="../assets/logoShopCenter.png" alt="logo" class="w-10 h-10" />
         <span class="font-bold text-lg">Shop Center</span>
-      </div>
-      <div class="w-full">
-        <div class="flex items-center border-2 border-red-400 rounded-md">
-          <input
-            type="text"
-            name="search"
-            id="search"
-            class="py-1 px-2 rounded-l-md outline-none w-full"
-            autocomplete="off"
-          />
-          <label for="search" class="py-2 px-2 bg-red-400 text-white"
-            ><i class="fa-solid fa-magnifying-glass"></i
-          ></label>
-        </div>
       </div>
     </div>
     <a class="text-2xl relative cursor-pointer">
